@@ -1,0 +1,30 @@
+ErrorDocument 403 /404.html
+ErrorDocument 404 /404.html
+
+DirectoryIndex page18081651.html
+
+RewriteEngine On
+
+RewriteCond %{HTTP:X-Forwarded-Proto} =http
+RewriteRule ^(.*)$ https://ecopat\.com\.ua/$1 [R=301,L]
+
+RewriteCond %{HTTP:X-Forwarded-Proto} =https
+RewriteCond %{HTTP_HOST} ^www\.ecopat.com.ua [NC]
+RewriteRule ^(.*)$ https://ecopat\.com\.ua/$1 [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} /robots.txt
+RewriteCond "%{DOCUMENT_ROOT}/robots_%{HTTP_HOST}.txt" -f
+RewriteRule ^(.*)$ robots_%{HTTP_HOST}.txt [NC,L]
+RewriteRule ^optoviki$ page18105562.html [NC]
+RewriteRule ^optoviki/$ page18105562.html [NC]
+
+RewriteRule ^brend$ page18105969.html [NC]
+RewriteRule ^brend/$ page18105969.html [NC]
+
+RewriteRule ^thank-you-page$ page18164638.html [NC]
+RewriteRule ^thank-you-page/$ page18164638.html [NC]
+
+RewriteRule ^members/ ma_start.html [NC]
+
+RewriteRule ^favicon.ico$ https://static.tildacdn.com/img/tildafavicon.ico [R=302,L]
+
